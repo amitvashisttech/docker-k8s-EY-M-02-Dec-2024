@@ -47,3 +47,34 @@
    58  docker inspect --format '{{.Name}} - {{.State.Running}} - {{.NetworkSettings.IPAddress}}' $(docker ps -qa)
 
 ```
+
+
+## Clean UP 
+```
+  57  docker ps
+   58  docker stop test-ubuntu-5
+   59  docker ps
+   60  docker kill test-ubuntu-4
+   61  docker ps
+   62* docker
+   63  docker start test-ubuntu-5
+   64  docker ps
+   65  docker start test-ubuntu-4
+   66  docker ps
+   67  docker kill test-ubuntu-4
+   68  docker kill test-ubuntu-5
+   69  docker ps -a
+   70  docker rm test-ubuntu-5
+   71  docker ps -a
+   72  docker ps -aq
+   73  docker rm $(docker ps -aq )
+   74  docker ps -a
+   75  docker images
+   76  docker rmi fec8bfd95b54
+   77  docker rmi fec8bfd95b54 --force
+   78  docker images
+   79  docker images -q
+   80  docker rmi $(docker images -q) --force
+   81  docker images
+   82  docker ps -a
+```
