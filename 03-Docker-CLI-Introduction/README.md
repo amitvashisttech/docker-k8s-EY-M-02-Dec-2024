@@ -1,5 +1,5 @@
 ## Container CLI Introduction
-
+```
   622  docker version
   623  systemctl status docker
   624  docker images
@@ -26,3 +26,24 @@
        docker logs -f <container-id / name >
        docker exec -it <container-id / name > ps -ef 
 
+```
+
+## Format Commands
+
+```
+   45  docker inspect $(docker ps -l) 
+   46  docker ps -l
+   47  docker ps -l -q 
+   48  docker inspect $(docker ps -lq) 
+   49  docker ps 
+   50  docker ps -q
+   51  docker inspect $(docker ps -q)
+   52  docker inspect $(docker ps -q) | wc -l 
+   53  docker ps 
+   54  docker run -itd ubuntu top 
+   55  docker ps 
+   56  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' $(docker ps -q)
+   57  docker inspect --format '{{.Name}} - {{.State.Running}} - {{.NetworkSettings.IPAddress}}' $(docker ps -q)
+   58  docker inspect --format '{{.Name}} - {{.State.Running}} - {{.NetworkSettings.IPAddress}}' $(docker ps -qa)
+
+```
