@@ -1,0 +1,66 @@
+375  docker ps
+  376  docker run -d -p 8080:80 --name test-1  amitvashist7/docker-k8s-ey-m-02-dec-2024-myapache:v4
+  377  docker run -d -p 8081:80 --name test-2  amitvashist7/docker-k8s-ey-m-02-dec-2024-myapache:v4
+  378  docker run -d -P --name test-3  amitvashist7/docker-k8s-ey-m-02-dec-2024-myapache:v4
+  379  docker ps
+  380  docker run -d -P --name test-4  amitvashist7/docker-k8s-ey-m-02-dec-2024-myapache:v1
+  381  docker ps
+  382  ls
+  383  mkdir 07-Docker-Network-Part-2
+  384  ls
+  385  cd 07-Docker-Network-Part-2/
+  386  s
+  387  ls
+  388  docker kill $(docker ps -q)
+  389  docker rm $(docker ps -qa)
+  390  s
+  391  ls
+  392  docker run -it ubuntu
+  393  docker ps
+  394  docker stop b5292df436bc
+  395  docker commit -m "My First Network Image" b5292df436bc mynetwork:v1
+  396  docker images
+  397  docker run -itd --name test-1 mynetwork:v1
+  398  docker ps
+  399  docker exec -it test-1 ip addr
+  400  docker exec -it test-1 ifconfig
+  401  docker exec -it test-1 ping -c2 google.com
+  402  ls
+  403  docker network ls
+  404  docker run -itd --name test-host-nw-1 --network none mynetwork:v1
+  405  docker run -itd --name test-none-nw-1 --network none mynetwork:v1
+  406  docker ps
+  407  docker kill test-host-nw-1
+  408  docker rm test-host-nw-1
+  409  docker ps
+  410  docker run -itd --name test-host-nw-1 --network host mynetwork:v1
+  411  docker run -itd --name test-bridge-nw-1 --network bridge mynetwork:v1
+  412  docker ps
+  413  docker kill test-1
+  414  ls
+  415  docker ps
+  416  docker exec -it test-none-nw-1 ifconfig
+  417  docker exec -it test-host-nw-1 ifconfig
+  418  docker exec -it test-bridge-nw-1 ifconfig
+  419  ls
+  420  docker network ls
+  421  docker network create --help
+  422  docker network create --driver bridge --subnet 172.28.5.0/24 --gateway 172.28.5.1 mybr0
+  423  docker network ls
+  424  docker network inspect mybr0
+  425  ip addr
+  426  docker run -itd --name test-mybr0-nw-1 --network mybr0 mynetwork:v1
+  427  docker run -itd --name test-mybr0-nw-2 --network mybr0 mynetwork:v1
+  428  docker ps
+  429  docker exec -it test-bridge-nw-1 ifconfig
+  430  docker exec -it test-mybr0-nw-1 ifconfig
+  431  docker exec -it test-mybr0-nw-2 ifconfig
+  432  docker exec -it test-mybr0-nw-2 ping -c2 172.28.5.3
+  433  docker exec -it test-mybr0-nw-2 ping -c2 172.28.5.2
+  434  docker exec -it test-mybr0-nw-2 ping -c2 google.com
+  435  docker exec -it test-mybr0-nw-2 ping -c2 172.17.0.2
+  436  ls
+  437  ping google.com
+  438  ping -c2 google.com
+  439  ping -c5 google.com
+
