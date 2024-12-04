@@ -1,0 +1,15 @@
+services:
+  proxy:
+    image: nginx:alpine
+    ports:
+      - '8099:80'
+
+  middle:
+    image: amitvashist7/docker-k8s-ey-m-02-dec-2024-myapache:v4  
+    ports:
+      - '9000:80'
+        
+  db:
+    image: nginx:alpine
+    ports:
+      - '3306:80'
