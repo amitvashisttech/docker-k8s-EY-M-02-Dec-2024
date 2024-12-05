@@ -1,0 +1,41 @@
+services:
+  proxy:
+    image: nginx:alpine
+    ports:
+      - '8099:80'
+    networks:
+      - mynet
+    volumes:
+      - myproxy-app-vol1:/myapp1
+      - myproxy-app-vol2:/myapp2
+
+  middle:
+    image: amitvashist7/docker-k8s-ey-m-02-dec-2024-myapache:v4  
+    ports:
+      - '9000:80'
+    networks:
+      - mynet
+    volumes:
+      - mymiddle-app-vol1:/myapp1
+        
+  db:
+    image: nginx:alpine
+    ports:
+      - '3306:80'
+    networks:
+      - mysecure-net
+    volumes:
+      - mydb-app-vol1:/oradb
+
+networks:
+  mynet: 
+    driver: bridge
+  mysecure-net: 
+    driver: bridge
+
+
+volumes:
+  mymiddle-app-vol1:
+  mydb-app-vol1:
+  myproxy-app-vol1:
+  myproxy-app-vol2:
