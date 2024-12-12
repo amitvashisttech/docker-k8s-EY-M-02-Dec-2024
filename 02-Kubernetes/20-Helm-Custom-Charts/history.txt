@@ -1,0 +1,140 @@
+172  mkdir 20-Helm-Custom-Charts
+  173  ls
+  174  cd 20-Helm-Custom-Charts/
+  175  ls
+  176  mkdir v1
+  177  ls
+  178  cd v1/
+  179  ls
+  180  helm create my-tiny-webapp
+  181  ls
+  182  tree my-tiny-webapp/
+  183  ls
+  184  cd my-tiny-webapp/
+  185  ls
+  186  cat Chart.yaml
+  187  ls
+  188  tree  .
+  189  cat templates/deployment.yaml
+  190  ls
+  191  vim values.yaml
+  192  ls
+  193  cd ..
+  194  ls
+  195  helm install my-web my-tiny-webapp --dry-run
+  196  helm install my-web my-tiny-webapp
+  197  helm list
+  198  kubectl get deploy,po,svc
+  199  kubectl get sa
+  200  kubectl get po
+  201  kubectl describe po my-web-my-tiny-webapp-8446f6f8bb-tmxdr
+  202  kubectl exec -it my-web-my-tiny-webapp-8446f6f8bb-tmxdr -- bash
+  203  kubectl get svc
+  204  ls
+  205  helm install my-web-1 my-tiny-webapp
+  206  helm install my-web-2 my-tiny-webapp
+  207  kubectl get po
+  208  kubectl get svc
+  209  ls
+  210  cd ..
+  211  ls
+  212  cd ..
+  213  ls
+  214  cd 20-Helm-Custom-Charts/
+  215  ls
+  216  cp -rf v1 v2
+  217  ls
+  218  cd v2/
+  219  ls
+  220  cd my-tiny-webapp/
+  221  ls
+  222  vim Chart.yaml
+  223  ls
+  224  vim values.yaml
+  225  ls
+  226  cd ..
+  227  ls
+  228  helm  list
+  229  helm  upgrade my-web my-tiny-webapp
+  230  helm  list
+  231  kubectl get po
+  232  kubectl get svc
+  233  curl http://172.18.0.2:32242
+  234  ls
+  235  cd ..
+  236  ls
+  237  cp -rf v3
+  238  cp -rf v2 v3
+  239  ls
+  240  cd v3/
+  241  s
+  242  ls
+  243  cd my-tiny-webapp/
+  244  ls
+  245  vim Chart.yaml
+  246  ls
+  247  vim values.yaml
+  248  ls
+  249  vim templates/deployment.yaml
+  250  vim values.yaml
+  251  ls
+  252  vim templates/service.yaml
+  253  ls
+  254  vim templates/deployment.yaml
+  255  ls
+  256  vim values.yaml
+  257  vim templates/service.yaml
+  258  ls
+  259  cd ..
+  260  ls
+  261  helm  upgrade my-web my-tiny-webapp
+  262  vim my-tiny-webapp/values.yaml
+  263  helm  upgrade my-web my-tiny-webapp
+  264  vim my-tiny-webapp/values.yaml
+  265  helm  upgrade my-web my-tiny-webapp
+  266  vim my-tiny-webapp/values.yaml
+  267  helm  upgrade my-web my-tiny-webapp --dry-run
+  268  vim my-tiny-webapp/values.yaml
+  269  vim
+  270  ls
+  271  vim my-tiny-webapp/templates/deployment.yaml
+  272  vim my-tiny-webapp/values.yaml
+  273  helm  upgrade my-web my-tiny-webapp --dry-run
+  274  vim my-tiny-webapp/values.yaml
+  275  helm  upgrade my-web my-tiny-webapp --dry-run
+  276  helm  upgrade my-web my-tiny-webapp
+  277  helm list
+  278  kubectl get po
+  279  kubectl get svc
+  280  curl http://172.18.0.2:32242
+  281  curl http://172.18.0.2:32242/info
+  282  ls
+  283  cd my-tiny-webapp/
+  284  ls
+  285  vim values.yaml
+  286  vim templates/service.yaml
+  287  ls
+  288  helm list
+  289  helm history my-web
+  290  helm rollback my-web
+  291  helm history my-web
+  292  kubectl get po
+  293  curl http://172.18.0.2:32242/info
+  294  curl http://172.18.0.2:32242
+  295  helm rollback my-web
+  296  helm history my-web
+  297  curl http://172.18.0.2:32242/info
+  298  helm history my-web
+  299  helm rollback my-web 1
+  300  helm history my-web
+  301  curl http://172.18.0.2:32242/info
+  302  curl http://172.18.0.2:32242
+  303  kubectl get svc
+  304  l
+  305  cd ..
+  306  ls
+  307  helm list
+  308  helm delete my-web
+  309  helm delete my-web-1
+  310  helm delete my-web-2
+  311  helm list
